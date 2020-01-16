@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Handbook',
+  title: 'handbook',
   description: 'a handbook about coding',
   dest: 'dist',
   head: [
@@ -23,6 +23,9 @@ module.exports = {
     locales: {
       '/': {
         label: '简体中文',
+        editLinks: true,
+        docsDir: 'docs',
+        editLinkText: '在 GitHub 上编辑此页',
         lastUpdated: '上次更新',
         nav: require('./nav/zh'),
         sidebar: {
