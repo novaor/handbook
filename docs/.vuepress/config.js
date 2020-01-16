@@ -1,5 +1,5 @@
 module.exports = {
-  base: 'handbook',
+  base: '/handbook/',
   title: 'handbook',
   description: 'a handbook about coding',
   dest: 'dist',
