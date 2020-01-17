@@ -19,7 +19,7 @@ module.exports = {
   },
   theme: '@vuepress/vue',
   themeConfig: {
-    repo: 'novaor/handbook',
+    repo: 'nodesh/handbook',
     smoothScroll: true,
     locales: {
       '/': {
@@ -57,6 +57,13 @@ module.exports = {
               collapsable: false,
               children: [
                 'vue'
+              ]
+            },
+            {
+              title: 'turnserver',
+              collapsable: true,
+              children: [
+                'turnserver'
               ]
             }
           ]

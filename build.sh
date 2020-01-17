@@ -9,6 +9,6 @@ git init
 git add -A
 git commit -m 'deploy'
 
-git push -f https://github.com/novaor/handbook.git master:gh-pages
+git push -f https://github.com/nodesh/handbook.git master:gh-pages
 
 cd -
