@@ -59,5 +59,5 @@ netstat -nat | grep LISTEN
 [https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/](https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/)
 
 ::: tip 参考链接
-https://github.com/coturn/coturn/blob/master/INSTALL
+[https://github.com/coturn/coturn/blob/master/INSTALL]()
 :::
