@@ -1,63 +1,51 @@
-# Turnserver 服务器搭建
+# [FFmpeg](http://ffmpeg.org/) 安装
 
-## 安装
-### 安装依赖库
+## 简介
+<ul>
+    <li>A complete, cross-platform solution to record, convert and stream audio and video.</li>
+</ul>
+
+## Centos安装FFmpeg
+### 准备
 ```shell script
-yum install -y make gcc cc gcc-c++ wget
-yum install -y openssl-devel libevent libevent-devel
+# 使用yum安装编译工具 gcc cc cl
+yum -y install gcc cc cl
 ```
-### 安装coturn
+### 安装yasm插件
+[Yasm官网](http://yasm.tortall.net/)
 ```shell script
-git clone https://github.com/coturn/coturn
-cd coturn
-./configure
-make
-sudo make install
-cd /usr/local/etc/
-cp turnserver.conf.default turnserver.conf
-```
-
-## 配置
-```shell script
-vim turnserver.conf
-
-
-# 默认监听端口
-listening-port=3478
-# 外网ip
-external-ip=47.110.132.92
-# 用户密码
-user=idc:123456
-# 域名
-realm=nodesh.cn
-no-tls
-no-dtls
-# 日志
-log-file=/var/tmp/turn.log
-# For the security reasons, it is recommended to use the encrypted
-cli-password=idc123456
+# 下载
+wget http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
+# 解压
+tar -xvf yasm-1.3.0.tar.gz
+# 执行安装
+cd yasm-1.3.0/
+./configure && make && make install
 ```
 
-## 启动
-
-### 确保端口开放
+## 安装FFmpeg
 ```shell script
-iptables -A INPUT -p udp --dport 3478 -j ACCEPT
-iptables -A INPUT -p udp --dport 5349 -j ACCEPT
-```
-### 启动
-```shell script
-turnserver -o -a -c /usr/local/etc/turnserver.conf
-```
-### 验证监听端口
-```shell script
-netstat -nat | grep LISTEN
+# 下载
+wget http://www.ffmpeg.org/releases/ffmpeg-4.2.2.tar.gz
+# 解压
+tar -xvf ffmpeg-4.2.2.tar.gz
+# 执行安装
+cd ffmpeg-4.2.2/
+./configure && make && make install
 ```
 
 ## 验证
-### 在线测试
-[https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/](https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/)
+```shell script
+ffmpeg -version
 
-::: tip 参考链接
-[https://github.com/coturn/coturn/blob/master/INSTALL]()
-:::
+ffmpeg version 4.2.2 Copyright (c) 2000-2019 the FFmpeg developers
+built with gcc 4.8.5 (GCC) 20150623 (Red Hat 4.8.5-39)
+configuration: 
+libavutil      56. 31.100 / 56. 31.100
+libavcodec     58. 54.100 / 58. 54.100
+libavformat    58. 29.100 / 58. 29.100
+libavdevice    58.  8.100 / 58.  8.100
+libavfilter     7. 57.100 /  7. 57.100
+libswscale      5.  5.100 /  5.  5.100
+libswresample   3.  5.100 /  3.  5.100
+```

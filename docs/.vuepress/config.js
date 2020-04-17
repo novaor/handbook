@@ -32,6 +32,13 @@ module.exports = {
         sidebar: {
           '/guide/': [
             {
+              title: 'FFmpeg',
+              collapsable: false,
+              children: [
+                'ffmpeg-install'
+              ]
+            },
+            {
               title: 'mysql',
               collapsable: false,
               children: [
@@ -39,17 +46,17 @@ module.exports = {
               ]
             },
             {
-              title: 'oracle',
-              collapsable: false,
-              children: [
-                'install-oracle_xe'
-              ]
-            },
-            {
               title: 'nginx',
               collapsable: false,
               children: [
                 'macos-install'
+              ]
+            },
+            {
+              title: 'oracle',
+              collapsable: false,
+              children: [
+                'install-oracle_xe'
               ]
             },
             {

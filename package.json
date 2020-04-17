@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "my handbook",
   "scripts": {
+    "commit": "git-cz",
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
     "deploy": "sh build.sh",
@@ -10,6 +11,11 @@
     "lint-md:style": "remark --quiet --frail .",
     "lint-md:wording": "textlint ./docs/**/*.md",
     "show-help": "vuepress --help"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   },
   "repository": {
     "type": "git",
@@ -31,6 +37,7 @@
     "@vuepress/plugin-back-to-top": "^1.2.0",
     "@vuepress/plugin-pwa": "^1.2.0",
     "@vuepress/theme-vue": "^1.2.0",
+    "commitizen": "^4.0.4",
     "vue-toasted": "^1.1.27",
     "vuepress": "^1.2.0"
   }
